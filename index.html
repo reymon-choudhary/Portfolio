@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reymon Choudhary — Backend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@400;500;700;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="sbar"></div>
+<canvas id="bgc"></canvas>
+<div id="dot"></div>
+<div id="ring"></div>
+
+<!-- FLOATING THEME SWITCHER -->
+<div class="theme-panel" id="themePanel">
+  <div class="tcirc on" data-t="dark"  title="Night Mode"         onclick="setTheme('dark')">🌙</div>
+  <div class="tcirc"    data-t="light" title="Bright Mode"         onclick="setTheme('light')">☀️</div>
+  <div class="tcirc"    data-t="multi" title="Colour Burst — shuffle!" id="multiBtn" onclick="setTheme('multi')">🎨</div>
+</div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob" id="mob">
+  <a href="#skills" onclick="closeMob()">Skills</a>
+  <a href="#experience" onclick="closeMob()">Experience</a>
+  <a href="#projects" onclick="closeMob()">Projects</a>
+  <a href="#education" onclick="closeMob()">Education</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <div class="mob-themes" style="display:flex;gap:.8rem;margin-top:.8rem">
+    <div class="tcirc mob-tcirc on" data-t="dark"  onclick="setTheme('dark');closeMob()"  title="Night"  style="cursor:pointer;width:42px;height:42px;font-size:1.2rem">🌙</div>
+    <div class="tcirc mob-tcirc"    data-t="light" onclick="setTheme('light');closeMob()" title="Bright" style="cursor:pointer;width:42px;height:42px;font-size:1.2rem">☀️</div>
+    <div class="tcirc mob-tcirc"    data-t="multi" onclick="setTheme('multi');closeMob()" title="Shuffle colours" style="cursor:pointer;width:42px;height:42px;font-size:1.2rem">🎨</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="logo" href="#"><span class="logo-dot"></span> RC.</a>
+  <ul class="nlinks">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nright">
+    <div class="tpills">
+      <button class="tpill on" data-t="dark" onclick="setTheme('dark')">🌙</button>
+      <button class="tpill" data-t="aurora" onclick="setTheme('aurora')">🌿</button>
+      <button class="tpill" data-t="ember" onclick="setTheme('ember')">🔥</button>
+    </div>
+    <div class="otw open" id="otw">
+      <div class="orb"></div>
+      <span class="otw-lbl" id="otwLbl">Open to Work</span>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="pg" id="hero">
+  <div class="pgi">
+    <div class="hgrid">
+      <div>
+        <div class="eyebrow">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--ac3);animation:op 2s infinite;display:inline-block"></span>
+          Available — Backend / SDE-1
+        </div>
+        <h1 class="hname">
+          Reymon
+          <span class="out">Choudhary</span>
+        </h1>
+        <div class="hrole"><span class="tw" id="tw"></span></div>
+        <p class="hbio">
+          Building <b>high-performance backend systems</b> with Java &amp; Spring Boot —
+          clean microservices, scalable APIs, and distributed architectures
+          that ship to production with confidence.
+        </p>
+        <div class="hcta">
+          <a href="#projects" class="btn bp">View Projects →</a>
+          <a href="#contact" class="btn bg">Let's Talk</a>
+          <a href="ReymonChoudhary_Resume.pdf" download class="btn bdl">↓ Resume</a>
+        </div>
+        <div class="ftags">
+          <div class="ftag"><em>☕</em><em>Java</em></div>
+          <div class="ftag"><em>🍃</em><em>Spring Boot</em></div>
+          <div class="ftag"><em>🐳</em><em>Docker</em></div>
+          <div class="ftag"><em>🔑</em><em>JWT</em></div>
+          <div class="ftag"><em>⚙️</em><em>Microservices</em></div>
+          <div class="ftag"><em>🐘</em><em>PostgreSQL</em></div>
+          <div class="ftag"><em>☸️</em><em>Kubernetes</em></div>
+        </div>
+        <div class="hloc">
+          <span>📍</span>
+          <div>
+            <div style="font-size:.58rem;color:var(--tx3);letter-spacing:.08em;text-transform:uppercase">From — New Delhi</div>
+            <div style="color:var(--ac3);font-weight:500;font-size:.76rem">Currently in Hyderabad 🌆</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <div class="tbar"><div class="td"></div><div class="td"></div><div class="td"></div><div class="ttitle">reymon@dev — profile.json</div></div>
+        <div class="tbody">
+          <span style="color:var(--tx3)">{</span><br>
+          &nbsp;&nbsp;<span class="jk">"name"</span>: <span class="js">"Reymon Choudhary"</span>,<br>
+          &nbsp;&nbsp;<span class="jk">"role"</span>: <span class="js">"Backend Engineer"</span>,<br>
+          &nbsp;&nbsp;<span class="jk">"status"</span>: <span class="jv" id="jStat">"open_to_work"</span>,<br>
+          &nbsp;&nbsp;<span class="jk">"from"</span>: <span class="js">"New Delhi 🏙️"</span>,<br>
+          &nbsp;&nbsp;<span class="jk">"currently"</span>: <span class="js">"Hyderabad 🌆"</span>,<br>
+          &nbsp;&nbsp;<span class="jk">"yoe"</span>: <span class="jn">2</span>,<span class="jc"> // years</span><br>
+          &nbsp;&nbsp;<span class="jk">"stack"</span>: [<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="js">"Java"</span>, <span class="js">"Spring Boot"</span>,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="js">"PostgreSQL"</span>, <span class="js">"Docker"</span><br>
+          &nbsp;&nbsp;],<br>
+          &nbsp;&nbsp;<span class="jk">"goal"</span>: <span class="jv">"impactful engineering at scale"</span><br>
+          <span style="color:var(--tx3)">}</span><br>
+          <span class="jc">// ready → </span><span class="jcur"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="statsbar">
+  <div class="rv"><span class="snum">2+</span><span class="slb">Years Experience</span></div>
+  <div class="rv"><span class="snum">5+</span><span class="slb">Projects Built</span></div>
+  <div class="rv"><span class="snum">3</span><span class="slb">Gov't APIs Shipped</span></div>
+  <div class="rv"><span class="snum">🏆</span><span class="slb">IndoML Winner</span></div>
+</div>
+
+<!-- ════════════════ SKILLS ════════════════ -->
+<section class="pg" id="skills">
+  <span class="sec-n">01</span>
+  <div class="pgi">
+    <div class="slbl rl">Core Competencies</div>
+    <h2 class="sh">Tech Stack</h2>
+    <div class="sk-wrap">
+      <div class="rv">
+        <div class="scat">Backend &amp; Languages</div>
+        <div class="srow">
+          <div class="spill"><span class="si">☕</span><span class="sn">Java</span></div>
+          <div class="spill"><span class="si">🍃</span><span class="sn">Spring Boot</span></div>
+          <div class="spill"><span class="si">🔗</span><span class="sn">REST APIs</span></div>
+          <div class="spill"><span class="si">⚙️</span><span class="sn">Microservices</span></div>
+          <div class="spill"><span class="si">🔑</span><span class="sn">JWT / Auth</span></div>
+          <div class="spill"><span class="si">⚛️</span><span class="sn">React JS</span></div>
+          <div class="spill"><span class="si">📱</span><span class="sn">React Native</span></div>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="scat">Databases</div>
+        <div class="srow">
+          <div class="spill"><span class="si">🐘</span><span class="sn">PostgreSQL</span></div>
+          <div class="spill"><span class="si">🍃</span><span class="sn">MongoDB</span></div>
+          <div class="spill"><span class="si">🗄️</span><span class="sn">MariaDB</span></div>
+          <div class="spill"><span class="si">⚡</span><span class="sn">Supabase</span></div>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="scat">DevOps &amp; Tools</div>
+        <div class="srow">
+          <div class="spill"><span class="si">🐳</span><span class="sn">Docker</span></div>
+          <div class="spill"><span class="si">☸️</span><span class="sn">Kubernetes</span></div>
+          <div class="spill"><span class="si">🔧</span><span class="sn">Jenkins</span></div>
+          <div class="spill"><span class="si">📊</span><span class="sn">ELK Stack</span></div>
+          <div class="spill"><span class="si">🔬</span><span class="sn">SonarQube</span></div>
+          <div class="spill"><span class="si">🔀</span><span class="sn">Git / SVN</span></div>
+          <div class="spill"><span class="si">📦</span><span class="sn">Maven/Gradle</span></div>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="scat">Testing &amp; Monitoring</div>
+        <div class="srow">
+          <div class="spill"><span class="si">🧪</span><span class="sn">JUnit</span></div>
+          <div class="spill"><span class="si">🎭</span><span class="sn">Mockito</span></div>
+          <div class="spill"><span class="si">⚡</span><span class="sn">JMeter</span></div>
+          <div class="spill"><span class="si">📜</span><span class="sn">SLF4J</span></div>
+          <div class="spill"><span class="si">🧩</span><span class="sn">Hibernate</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ EXPERIENCE ════════════════ -->
+<section class="pg" id="experience">
+  <span class="sec-n">02</span>
+  <div class="pgi">
+    <div class="slbl rr">Work History</div>
+    <h2 class="sh">Experience</h2>
+    <div class="etl">
+      <div class="ei">
+        <div class="ec rv">
+          <div class="ehead"><div><div class="etitle">Software Engineer — Backend</div><div class="eco">IIT Academy · Remote</div></div><div class="edt">May 2024 – Oct 2025</div></div>
+          <ul class="eli">
+            <li>Developed and maintained Spring Boot microservices for insurance policy and claims processing workflows</li>
+            <li>Designed REST APIs supporting policy creation, renewal, approval and claim management processes</li>
+            <li>Implemented workflow automation and scheduler-based processing to streamline business operations</li>
+          </ul>
+          <div class="etags"><span class="etag">Java</span><span class="etag">Spring Boot</span><span class="etag">REST APIs</span><span class="etag">React JS</span><span class="etag">MariaDB</span><span class="etag">Git</span></div>
+        </div>
+      </div>
+      <div class="ei">
+        <div class="ec rv">
+          <div class="ehead"><div><div class="etitle">Software Developer</div><div class="eco">PS QuickIT Pvt. Ltd. · OBPS Next Gen, MCD Delhi</div></div><div class="edt">Jul 2023 – Mar 2024</div></div>
+          <ul class="eli">
+            <li>Developed Spring Boot microservices for OBPS2, a government building approval platform</li>
+            <li>Designed REST APIs integrated with Angular frontend and external systems</li>
+            <li>Implemented JWT authentication, Email/SMS notifications, and audit logging</li>
+            <li>Optimised PostgreSQL queries improving workflow performance significantly</li>
+          </ul>
+          <div class="etags"><span class="etag">Java</span><span class="etag">Spring Boot</span><span class="etag">PostgreSQL</span><span class="etag">JWT</span></div>
+        </div>
+      </div>
+      <div class="ei">
+        <div class="ec rv">
+          <div class="ehead"><div><div class="etitle">Trainee Java Developer</div><div class="eco">MCD Civic Centre, Delhi · OBPS Next Gen Project</div></div><div class="edt">Jan 2023 – Jun 2023</div></div>
+          <ul class="eli">
+            <li>Contributed to backend development, implemented authentication and logging mechanisms</li>
+            <li>Developed REST APIs and optimised PostgreSQL schemas for approval workflows</li>
+            <li>Assisted in debugging, manual testing, and code reviews</li>
+          </ul>
+          <div class="etags"><span class="etag">Java</span><span class="etag">Spring Boot</span><span class="etag">PostgreSQL</span><span class="etag">Manual Testing</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ PROJECTS ════════════════ -->
+<section class="pg" id="projects">
+  <span class="sec-n">03</span>
+  <div class="pgi">
+    <div class="slbl rl">Work</div>
+    <h2 class="sh">Projects</h2>
+    <div class="pgrid">
+      <div class="pcard rfl">
+        <div class="pnum">001</div>
+        <div class="pbadges"><div class="pbadge plive"><div class="ldot"></div>Live</div><div class="pbadge pfeat">⭐ Featured</div></div>
+        <div class="ptitle">SmartHire — Job Tracker</div>
+        <div class="pdesc">Full-stack app to track job applications with status management, JWT auth, and React dashboard. Backend on Docker/Render, frontend on Vercel.</div>
+        <div class="ptags"><span class="ptag">Spring Boot</span><span class="ptag">React</span><span class="ptag">Docker</span><span class="ptag">Supabase</span><span class="ptag">JWT</span></div>
+        <div class="plinks"><a href="https://github.com/reymon-choudhary" class="plink" target="_blank">↗ GitHub</a></div>
+      </div>
+      <div class="pcard rfl">
+        <div class="pnum">002</div>
+        <div class="ptitle">Auth Microservice System</div>
+        <div class="pdesc">Standalone auth microservice with JWT access/refresh tokens and RBAC. Secure login, token rotation, and API gateway-level validation.</div>
+        <div class="ptags"><span class="ptag">Spring Boot</span><span class="ptag">JWT</span><span class="ptag">PostgreSQL</span></div>
+        <div class="plinks"><a href="https://github.com/reymon-choudhary" class="plink" target="_blank">↗ GitHub</a></div>
+      </div>
+      <div class="pcard rfl">
+        <div class="pnum">003</div>
+        <div class="ptitle">E-Commerce Backend API</div>
+        <div class="pdesc">REST API with user auth, product catalog, cart, order processing, and Razorpay integration. Handles 500+ concurrent users with optimised queries.</div>
+        <div class="ptags"><span class="ptag">Java</span><span class="ptag">Spring Boot</span><span class="ptag">MySQL</span><span class="ptag">JWT</span><span class="ptag">Docker</span></div>
+        <div class="plinks"><a href="https://github.com/reymon-choudhary" class="plink" target="_blank">↗ GitHub</a></div>
+      </div>
+      <div class="pcard rfl">
+        <div class="pnum">004</div>
+        <div class="ptitle">TaskFlow — Project Mgmt API</div>
+        <div class="pdesc">Multi-tenant project management with RBAC (Admin/Manager/Member), task assignment, deadline tracking, and email notifications.</div>
+        <div class="ptags"><span class="ptag">Spring Boot</span><span class="ptag">MySQL</span><span class="ptag">RBAC</span></div>
+        <div class="plinks"><a href="https://github.com/reymon-choudhary" class="plink" target="_blank">↗ GitHub</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ EDUCATION ════════════════ -->
+<section class="pg" id="education">
+  <span class="sec-n">04</span>
+  <div class="pgi">
+    <div class="slbl rr">Academic Background</div>
+    <h2 class="sh">Education</h2>
+    <div class="edcards">
+      <div class="edc rv"><div class="edico">🎓</div><div><div class="eddeg">B.Tech — Information Technology</div><div class="edsch">Indira Gandhi Delhi Technical University for Women (IGDTUW), Delhi</div><div class="edmeta"><span>2019 – 2023</span><span class="edgr">CGPA: 7.1/10</span></div></div></div>
+      <div class="edc rv"><div class="edico">📚</div><div><div class="eddeg">Senior Secondary (XII) — CBSE</div><div class="edsch">Kendriya Vidyalaya, Vikaspuri, New Delhi</div><div class="edmeta"><span>2016 – 2018</span><span class="edgr">80.3%</span></div></div></div>
+      <div class="edc rv"><div class="edico">🏫</div><div><div class="eddeg">Secondary (X) — CBSE</div><div class="edsch">Kendriya Vidyalaya, New Delhi</div><div class="edmeta"><span>2014 – 2016</span><span class="edgr">CGPA: 10/10 🏆</span></div></div></div>
+    </div>
+    <div class="slbl rv" style="margin-top:2.8rem">Credentials</div>
+    <div class="crow">
+      <div class="ccard rv"><div class="cico" style="background:rgba(240,197,68,.08)">🏆</div><div><div class="cname">1st Place — IndoML Datathon</div><div class="ciss">Kaggle Competition · 2021</div></div></div>
+      <div class="ccard rv"><div class="cico" style="background:rgba(63,185,80,.08)">🍃</div><div><div class="cname">Java Certifications</div><div class="ciss">LinkedIn Learning, Udemy, Coursera</div></div></div>
+      <div class="ccard rv"><div class="cico" style="background:rgba(88,166,255,.08)">⚙️</div><div><div class="cname">DevOps Fundamentals</div><div class="ciss">NareshIT Institute, Hyderabad</div></div></div>
+      <div class="ccard rv"><div class="cico" style="background:rgba(249,115,22,.08)">☕</div><div><div class="cname">Java Programming Masterclass</div><div class="ciss">Udemy — Tim Buchalka</div></div></div>
+      <div class="ccard rv"><div class="cico" style="background:rgba(36,150,237,.08)">🐳</div><div><div class="cname">Docker &amp; Kubernetes</div><div class="ciss">Coursera — Google Cloud</div></div></div>
+      <div class="ccard rv"><div class="cico" style="background:rgba(232,121,160,.08)">🔐</div><div><div class="cname">REST API Design &amp; Security</div><div class="ciss">LinkedIn Learning</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CONTACT ════════════════ -->
+<section class="pg" id="contact">
+  <span class="sec-n">05</span>
+  <div class="pgi">
+    <div class="slbl rl">Let's Connect</div>
+    <div class="cgrid">
+      <div>
+        <div class="cbig rv">Let's build<br><span class="gr">something</span><br>great.</div>
+        <p class="csub rv">
+          Whether you're hiring, building a team, or just want to connect —
+          feel free to reach out. I'm always open to interesting conversations
+          about backend engineering, architecture, or new opportunities.
+        </p>
+        <div class="citems">
+          <a href="mailto:reymonchoudhary@gmail.com" class="citem rv"><span>✉️</span><div><span class="cilbl">Email</span><span class="cival">reymonchoudhary@gmail.com</span></div><span class="ciarr">→</span></a>
+          <a href="https://linkedin.com/in/reymon-choudhary" class="citem rv" target="_blank"><span>💼</span><div><span class="cilbl">LinkedIn</span><span class="cival">linkedin.com/in/reymon-choudhary</span></div><span class="ciarr">→</span></a>
+          <a href="https://github.com/reymon-choudhary" class="citem rv" target="_blank"><span>⌨️</span><div><span class="cilbl">GitHub</span><span class="cival">github.com/reymon-choudhary</span></div><span class="ciarr">→</span></a>
+        </div>
+      </div>
+      <div class="fpanel rr">
+        <div class="fh">Drop a Message</div>
+        <div class="fsb">I'll get back to you within 24 hours.</div>
+        <div id="cForm">
+          <div class="frow2">
+            <div class="ff"><label class="fl">Name</label><input class="fi" id="fn" placeholder="Your name" type="text"></div>
+            <div class="ff"><label class="fl">Email</label><input class="fi" id="fe" placeholder="you@example.com" type="email"></div>
+          </div>
+          <div class="ff"><label class="fl">Subject</label><input class="fi" id="fs" placeholder="What's this about?" type="text"></div>
+          <div class="ff"><label class="fl">Message</label><textarea class="fi fta" id="fm" placeholder="Tell me about the role or project..."></textarea></div>
+          <button class="fbtn" onclick="sendMsg()">Send Message ✉️</button>
+        </div>
+        <div class="fok" id="fOk"><span class="ck">✅</span><strong>Message sent!</strong><br>I'll reply soon. Thanks for reaching out.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fc">© 2025 Reymon Choudhary · New Delhi, India</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
